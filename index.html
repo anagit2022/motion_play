@@ -1,1 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Motion Workspace</title>
+
+    <!-- p5.js -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/p5.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <h1>Motion Workspace</h1>
+
+    <!-- ========================= -->
+    <!-- Toolbar -->
+    <!-- ========================= -->
+
+    <div id="toolbar">
+
+        <!-- Connect button will be created in sketch.js -->
+        <div id="buttons"></div>
+
+    </div>
+
+    <hr>
+
+    <!-- ========================= -->
+    <!-- Quick Command -->
+    <!-- ========================= -->
+
+    <h2>Quick Command</h2>
+
+    <p>
+        Send a single G-code command directly to the printer.
+    </p>
+
+    <input
+        id="gcodeInput"
+        type="text"
+        placeholder="Example: G28">
+
+    <button id="sendButton">
+        Send
+    </button>
+
+    <hr>
+
+    <!-- ========================= -->
+    <!-- JavaScript Motion Script -->
+    <!-- ========================= -->
+
+    <h2>JavaScript Motion Script</h2>
+
+    <p>
+        Write JavaScript to generate motion.
+    </p>
+
+    <textarea
+        id="scriptInput"
+        rows="18"
+        spellcheck="false"
+        placeholder="// Example
+
+await motion.home();
+
+await motion.send('G91');
+
+for(let i = 0; i < 20; i++){
+
+    await motion.move({
+        x:20,
+        feed:4000
+    });
+
+    await motion.move({
+        x:-20,
+        feed:4000
+    });
+
+}"></textarea>
+
+    <br><br>
+
+    <button id="runScriptButton">
+        ▶ Run Script
+    </button>
+
+    <button id="stopScriptButton">
+        ■ Stop Script
+    </button>
+
+    <hr>
+
+    <!-- ========================= -->
+    <!-- Conversation -->
+    <!-- ========================= -->
+
+    <h2>Conversation</h2>
+
+    <p>
+        Everything sent to and received from the printer appears here.
+    </p>
+
+    <div id="console"></div>
+
+    <!-- ========================= -->
+    <!-- JavaScript -->
+    <!-- ========================= -->
+
+    <script src="sketch.js"></script>
+
+</body>
+
+</html>
